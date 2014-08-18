@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nota App</string>
+    <string name="titulo_app">Nota Simplificada - APP</string>
+    <string name="entrar">Entrar</string>
+    <string name="imagem">Imagem Descrição</string>
+    <string name="seleciona_usuario">Selecionar Usuário</string>
+    <string name="sair">Sair</string>
+    <string name="novo_usuario">Registrar novo usuário</string>
+    <string name="login">Login</string>
+    <string name="usuario">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="ipsenha">Senha</string>
+    <string name="registra_usuario">Registrar Usuário</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="titulo_registrar">Registrar novo usuário</string>
+</resources>

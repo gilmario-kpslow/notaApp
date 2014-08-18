@@ -1,0 +1,30 @@
+# view AndroidManifest.xml #generated:21
+-keep class br.com.sefin.notaapp.LoginActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:9
+-keep class br.com.sefin.notaapp.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:16
+-keep class br.com.sefin.notaapp.Registrar { <init>(...); }
+
+# view AndroidManifest.xml #generated:22
+-keep class br.com.sefin.notaapp.RegistrarUsuarioActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:20
+-keep class br.com.sefin.notaapp.SelecionaUsuarioActivity { <init>(...); }
+
+# onClick res/layout/login.xml #generated:55
+-keepclassmembers class * { *** entrar(...); }
+
+# onClick res/layout/registrar.xml #generated:43
+-keepclassmembers class * { *** registrar(...); }
+
+# onClick res/layout/main.xml #generated:33
+-keepclassmembers class * { *** registrarUsuario(...); }
+
+# onClick res/layout/main.xml #generated:41
+-keepclassmembers class * { *** sair(...); }
+
+# onClick res/layout/main.xml #generated:25
+-keepclassmembers class * { *** selecionaUsuario(...); }
+
