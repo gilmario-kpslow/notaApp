@@ -5,6 +5,7 @@
  */
 package br.com.sefin.notaapp.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -34,6 +35,11 @@ public abstract class DAO<T extends Modelo> {
 
     public void inserir(T t) {
 
+        ContentValues values = new ContentValues();
+        values.put("nome", "Gilmario");
+        values.put("documento", "67096050353");
+        values.put("codigo", 1);
+        getDb().insert(modelo.getTableName(), null, values);
     }
 
     public List<T> listar() throws InstantiationException, IllegalAccessException {

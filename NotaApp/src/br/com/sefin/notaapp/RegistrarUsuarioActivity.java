@@ -10,24 +10,16 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import br.com.sefin.notaapp.dao.UsuarioDAO;
-import br.com.sefin.notaapp.util.HTTPUtil;
+import br.com.sefin.notaapp.modelo.Cadastro;
 import br.com.sefin.notaapp.util.MascaraUtil;
 import br.com.sefin.notaapp.util.Mensagem;
 import br.com.sefin.notaapp.util.WebService;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -88,14 +80,30 @@ public class RegistrarUsuarioActivity extends Activity {
             dialog.dismiss();
         }
 
+//        @Override
+//        protected String doInBackground(String... paramss) {
+//            try {
+//                String senhaUsuario = senha.getText().toString();
+//                String cnpjUsuario = MascaraUtil.removeMascara(cnpj.getText().toString());
+//                String usuarioXml = "<cadastro><cnpj>06191446000127</cnpj><codigo>1</codigo><nome>QUADROMOR BRASIL</nome></cadastro>";
+//                String[] result = new WebService().post("http://10.100.0.48:8080/WebTeste/service/contribuinte/", usuarioXml);
+//                return result[0] + " - " + result[1];
+//            } catch (Exception ex) {
+//                Logger.getLogger(RegistrarUsuarioActivity.class.getName()).log(Level.SEVERE, null, ex);
+//                return ex.getMessage() + "\r\n" + ex.getLocalizedMessage();
+//            }
+//        }
         @Override
         protected String doInBackground(String... paramss) {
             try {
                 String senhaUsuario = senha.getText().toString();
                 String cnpjUsuario = MascaraUtil.removeMascara(cnpj.getText().toString());
-                String usuarioXml = "<cadastro><cnpj>06191446000127</cnpj><codigo>1</codigo><nome>QUADROMOR BRASIL</nome></cadastro>";
-//                String[] result = new WebService().get("http://10.100.0.48:8080/WebTeste/service/contribuinte/" + "06191446000127");
-                String[] result = new WebService().post("http://10.100.0.48:8080/WebTeste/service/contribuinte/", usuarioXml);
+                String[] result = new WebService().get("http://10.100.0.48:8080/WebTeste/service/contribuinte/" + cnpjUsuario);
+                Cadastro c = new Cadastro();
+
+                c.setNome(cnpjUsuario);
+                c.setDocumento(cnpjUsuario);
+                usuarioDAO.registrarUsuario(c);
                 return result[0] + " - " + result[1];
             } catch (Exception ex) {
                 Logger.getLogger(RegistrarUsuarioActivity.class.getName()).log(Level.SEVERE, null, ex);

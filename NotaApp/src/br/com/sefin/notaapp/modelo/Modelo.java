@@ -5,6 +5,7 @@
  */
 package br.com.sefin.notaapp.modelo;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 /**
@@ -18,5 +19,11 @@ public abstract class Modelo {
     public abstract String getTableName();
 
     public abstract void instanciar(Cursor c);
+
+    public abstract ContentValues getValues();
+
+    public boolean isNull(Object o) {
+        return o == null;
+    }
 
 }

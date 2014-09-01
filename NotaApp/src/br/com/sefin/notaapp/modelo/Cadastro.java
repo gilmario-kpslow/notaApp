@@ -5,6 +5,7 @@
  */
 package br.com.sefin.notaapp.modelo;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 /**
@@ -58,6 +59,54 @@ public class Cadastro extends Modelo {
         setSenha(c.getString(c.getColumnIndex(Colunas.SENHA)));
         setTipo(c.getInt(c.getColumnIndex(Colunas.TIPO)));
         setUf(c.getString(c.getColumnIndex(Colunas.UF)));
+    }
+
+    @Override
+    public ContentValues getValues() {
+        ContentValues values = new ContentValues();
+        if (getCep() != null) {
+            values.put(Colunas.CEP, this.getCep());
+        }
+        if (getBairro() != null) {
+            values.put(Colunas.BAIRRO, this.getBairro());
+        }
+        if (getCodigo() != null) {
+            values.put(Colunas.CODIGO, this.getCodigo());
+        }
+        if (getComplemento() != null) {
+            values.put(Colunas.COMPLEMENTO, this.getComplemento());
+        }
+        if (getDocumento() != null) {
+            values.put(Colunas.DOCUMENTO, this.getDocumento());
+        }
+        if (getEmail() != null) {
+            values.put(Colunas.EMAIL, this.getEmail());
+        }
+        if (getId() != null) {
+            values.put(Colunas._ID, this.getId());
+        }
+        if (getInscricao() != null) {
+            values.put(Colunas.INSCRICAO, this.getInscricao());
+        }
+        if (getLogradouro() != null) {
+            values.put(Colunas.LOGRADOURO, this.getLogradouro());
+        }
+        if (getMunicipio() != null) {
+            values.put(Colunas.MUNICIPIO, this.getMunicipio());
+        }
+        if (getNome() != null) {
+            values.put(Colunas.NOME, this.getNome());
+        }
+        if (getNumero() != null) {
+            values.put(Colunas.NUMERO, this.getNumero());
+        }
+        if (getRazaoSocial() != null) {
+            values.put(Colunas.RAZAO_SOCIAL, this.getRazaoSocial());
+        }
+        if (getSenha() != null) {
+            values.put(Colunas.SENHA, this.getSenha());
+        }
+        return values;
     }
 
     public static class Colunas {

@@ -18,8 +18,8 @@ public class UsuarioDAO extends DAO<Cadastro> {
         super(context, new Cadastro(), Cadastro.class);
     }
 
-    public void registrarUsuario() {
-
+    public void registrarUsuario(Cadastro cadastro) {
+        this.inserir(cadastro);
     }
 
 }
